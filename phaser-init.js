@@ -36,10 +36,21 @@ function init() {
         ledge.scale.x = 0.2;
         ledge.body.immovable = true;
 
+        ledge = platforms.create(150, 400, 'ground');
+        ledge.scale.x = 0.1;
+        ledge.body.immovable = true;
+        
         ledge = platforms.create(10, 300, 'ground');
         ledge.scale.x = 0.3;
-        ledge.body.immovable = true;    
+        ledge.body.immovable = true;
         
+        ledge = platforms.create(180, 220, 'ground');
+        ledge.scale.x = 0.05;
+        ledge.body.immovable = true;
+        
+        ledge = platforms.create(230, 120, 'ground');
+        ledge.scale.x = 0.2;
+        ledge.body.immovable = true;    
         
          // The player and its settings
         player = game.add.sprite(32, game.world.height - 150, 'dude');
@@ -67,29 +78,26 @@ function init() {
         if (cursors.left.isDown)
         {
             //  Move to the left
-            player.body.velocity.x = -150;
-
+            player.body.velocity.x = -100;
             player.animations.play('left');
         }
         else if (cursors.right.isDown)
         {
             //  Move to the right
-            player.body.velocity.x = 150;
-
+            player.body.velocity.x = 100;
             player.animations.play('right');
         }
         else
         {
             //  Stand still
             player.animations.stop();
-
             player.frame = 4;
         }
 
         //  Allow the player to jump if they are touching the ground.
         if (cursors.up.isDown && player.body.touching.down && hitPlatform)
         {
-            player.body.velocity.y = -350;
+            player.body.velocity.y = -250;
         }
     }
 }
