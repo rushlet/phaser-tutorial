@@ -90,7 +90,7 @@ function init() {
         baddie.body.collideWorldBounds = true;
         baddie.animations.add('left', [0, 1], 10, true);
         baddie.animations.add('right', [2, 3], 10, true);
-        baddie.body.velocity.x = -150;
+        baddie.body.velocity.x = -100;
         baddie.animations.play('left');
     }
 
