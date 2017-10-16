@@ -30,27 +30,14 @@ function init() {
         ground.scale.setTo(2, 2);
         //  This stops it from falling away when you jump on it
         ground.body.immovable = true;
-
-        //  Now let's create two ledges
-        var ledge = platforms.create(230, 475, 'ground');
-        ledge.scale.x = 0.2;
-        ledge.body.immovable = true;
-
-        ledge = platforms.create(150, 400, 'ground');
-        ledge.scale.x = 0.1;
-        ledge.body.immovable = true;
         
-        ledge = platforms.create(10, 300, 'ground');
-        ledge.scale.x = 0.3;
-        ledge.body.immovable = true;
+        var ledgePositions = [[230, 475, 0.2], [150, 400, 0.1], [10, 300, 0.3], [180, 220, 0.05], [230, 120, 0.2]];
         
-        ledge = platforms.create(180, 220, 'ground');
-        ledge.scale.x = 0.05;
-        ledge.body.immovable = true;
-        
-        ledge = platforms.create(230, 120, 'ground');
-        ledge.scale.x = 0.2;
-        ledge.body.immovable = true;    
+        ledgePositions.forEach(ledgePosition => {
+            var ledge = platforms.create(ledgePosition[0], ledgePosition[1], 'ground');
+            ledge.scale.x = ledgePosition[2];
+            ledge.body.immovable = true;
+        });
         
          // The player and its settings
         player = game.add.sprite(32, game.world.height - 150, 'dude');
